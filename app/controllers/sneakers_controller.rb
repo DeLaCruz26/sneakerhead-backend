@@ -41,11 +41,11 @@ class SneakersController < ApplicationController
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_sneaker
-        @sneaker = Sneaker.find(params[:id])
+        @sneaker = Sneaker.find_by_id(params[:id])
       end
   
       # Only allow a trusted parameter "white list" through.
       def sneaker_params
-        params.require(:sneaker).permit(:name, :category, :description, :sale, :worn, :never_worn, :image)
+        params.require(:sneaker).permit(:brand, :price, :description, :image_link)
       end
   end
